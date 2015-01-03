@@ -1,0 +1,28 @@
+<div ng-controller="ShowController">
+  <super-navbar>
+    <super-navbar-title>
+      Show
+    </super-navbar-title>
+  </super-navbar>
+
+  <div class="padding">
+    <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+    <div ng-hide="showSpinner">
+      <h2 ng-bind="giftidea['gift_idea']"></h2>
+      
+      
+      
+
+
+      <super-modal-show location="giftidea#edit?id={{ giftidea.id }}">
+        <button class="button button-block button-positive">
+          Edit
+        </button>
+      </super-modal-show>
+
+      <button ng-click="remove(giftidea.id)" class="button button-block button-negative">
+        Remove
+      </button>
+    </div>
+  </div>
+</div>

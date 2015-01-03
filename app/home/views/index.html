@@ -1,0 +1,70 @@
+<div ng-controller="IndexController"> 
+  <super-navbar>  
+    <super-navbar-title>
+      Sandbox
+    </super-navbar-title>
+  </super-navbar>
+
+  <div class="padding">
+    <h1>Welcome!</h1>
+
+    <p>
+      Welcome to the sandbox.
+    </p>
+
+    <button class="button button-block button-calm" ng-click="dialog()">
+      <i class="icon icon-accessory super-alert"></i>
+      Do something
+    </button>
+
+
+    <div class="list">
+      <div class="item item-divider">
+        Logging
+      </div>          
+      <div class="item item-button-right" ng-click="ping()">
+        Ping
+        <button class="button button-positive">
+          <i class="icon icon-accessory super-information"></i>
+        </button>
+      </div>
+      <div class="item item-icon-left" ng-click='log()'>
+        <i class="icon icon-accessory super-information"></i>
+        logger.log
+      </div>
+
+      <div class="item item-divider">
+        UI
+      </div>    
+      <div class="item item-icon-left" ng-click="showSplashScreen()">
+        <i class="icon icon-accessory super-eye"></i>
+        Show splashscreen
+        <span class="badge badge-assertive">250ms</span>
+      </div>
+
+      <div class="item item-icon-left" ng-click="drawer()">
+        <i class="icon icon-accessory super-navicon"></i>
+        Open Drawer
+      </div>
+
+      <div class="item item-divider">
+        Navigation
+      </div>
+      <super-navigate location="settings#index" class="item item-icon-left item-icon-right">
+        <i class="icon icon-accessory super-gear-a"></i>
+        Settings
+        <i class="icon icon-accessory super-chevron-right"></i>
+      </super-navigate>
+
+      <div class="item item-divider">
+        Resources
+      </div>
+      <super-navigate location="giftidea#index" class="item item-icon-left item-icon-right">
+        <i class="icon icon-accessory super-arrow-right-c"></i>
+        Fetched via REST
+        <i class="icon icon-accessory super-chevron-right"></i>
+      </super-navigate>
+    </div>
+  </div>
+
+</div>

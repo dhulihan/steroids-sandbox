@@ -1,0 +1,191 @@
+#%RAML 0.8
+title: Steroids Data
+mediaType: application/json
+baseUri: https://rest-api.appgyver.com/v1/
+
+traits:
+  - securedBySteroidsApiKey:
+      headers:
+        steroidsApiKey:
+          type: string
+          example: exampleapikey
+          default: c370eb1595d00a6de9addb58732a4699480284be36ba7ffab700d6e739d0c94c
+        steroidsAppId:
+          type: integer
+          example: 1234
+          default: 36310
+
+
+resourceTypes:
+  - dolan_db_collection:
+      usage: This resourceType should be used for any collection of items
+      is: [ securedBySteroidsApiKey ]
+      get:
+        description: |
+          {
+            "action": "collection"
+          }
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "objects"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName>> # e.g cars
+      post:
+        description: |
+          {
+            "action": "create",
+            "rootKey": "object"
+          }
+        body:
+          application/json:
+            schema: <<resourcePathName | !singularize>>
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "object"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName | !singularize>> # e.g. car
+
+  - dolan_db_member:
+      usage: This resourceType should be used for any built.io item
+      is: [ securedBySteroidsApiKey ]
+      get:
+        description: |
+          {
+            "action": "find"
+          }
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "object"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName>> # e.g. car
+      put:
+        description: |
+          {
+            "action": "update",
+            "rootKey": "object"
+          }
+        body:
+          application/json:
+            schema: <<resourcePathName | !singularize>>
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "object"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName>>
+      delete:
+        description: |
+          {
+            "action": "destroy"
+          }
+        responses:
+          200:
+      
+
+
+/GiftIdea:
+  description: |
+    {
+      "resourceName": "GiftIdea",
+      "identifierKey": "gift_idea"
+    }
+  get:
+    is: [ securedBySteroidsApiKey ]
+    description: |
+      {
+        "action": "collection"
+      }
+  
+    responses:
+      200:
+        description: |
+          {
+          }
+  
+        body:
+          application/json:
+            schema: |
+              {"$schema":"http://json-schema.org/schema","title":"GiftIdea collection","type":"array","items":{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical GiftIdea representation","properties":{"gift_idea":{"type":"object"}},"required":[]}}
+  
+  post:
+    is: [ securedBySteroidsApiKey ]
+    description: |
+      {
+        "action": "create"
+      }
+  
+    responses:
+      200:
+        description: |
+          {
+          }
+  
+        body:
+          application/json:
+            schema: |
+              {"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical GiftIdea representation","properties":{"gift_idea":{"type":"object"}},"required":[]}
+  
+
+  /{id}:
+    get:
+      is: [ securedBySteroidsApiKey ]
+      description: |
+        {
+          "action": "find"
+        }
+    
+      responses:
+        200:
+          description: |
+            {
+            }
+    
+          body:
+            application/json:
+              schema: |
+                {"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical GiftIdea representation","properties":{"gift_idea":{"type":"object"}},"required":[]}
+    
+    put:
+      is: [ securedBySteroidsApiKey ]
+      description: |
+        {
+          "action": "update"
+        }
+    
+      responses:
+        200:
+          description: |
+            {
+            }
+    
+          body:
+            application/json:
+              schema: |
+                {"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical GiftIdea representation","properties":{"gift_idea":{"type":"object"}},"required":[]}
+    
+    delete:
+      is: [ securedBySteroidsApiKey ]
+      description: |
+        {
+          "action": "destroy"
+        }
+    
+      responses:
+        200:
+
+
