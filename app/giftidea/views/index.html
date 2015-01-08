@@ -1,15 +1,17 @@
 <div ng-controller="IndexController">
-  <super-navbar> 
+  <super-navbar>
     <super-navbar-title>
       Gift Ideas
     </super-navbar-title>
   </super-navbar>
 
-  <super-navigate-back>  
-    <button class="button button-block">    
-      Go back  
-    </button>
-  </super-navigate-back>
+  <div class="padding">
+    <super-navigate-back>
+      <button class="button button-block button-energized">
+        Go back
+      </button>
+    </super-navigate-back>
+  </div>
 
   <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
   <div ng-hide="showSpinner">
@@ -18,6 +20,7 @@
       <super-navigate location="giftidea#show" data-params-id="{{ giftidea.id }}" ng-repeat="giftidea in giftideas">
         <li class="item item-icon-right">
           <span ng-bind="giftidea['gift_idea']"></span>
+          {{giftidea.name}}
           <i class="icon super-ios7-arrow-right"></i>
         </li>
       </super-navigate>
@@ -28,10 +31,12 @@
       No giftideas found. Create one?
     </h4>
 
-    <super-modal-show location="giftidea#new">
-      <button class="button button-full button-positive">
-        Create a new giftidea
-      </button>
-    </super-modal-show>
+    <div class="padding">
+      <super-modal-show location="giftidea#new">
+        <button class="button button-full button-positive">
+          Create a new giftidea
+        </button>
+      </super-modal-show>
+    </div>
   </div>
 </div>

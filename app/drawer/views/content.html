@@ -5,22 +5,22 @@
       Drawer
     </super-navbar-title>
   </super-navbar>
+  <div class="list">
+      <super-navigate location="home#index" class="item item-icon-left" onclick="supersonic.ui.drawers.close()">
+          <i class="icon icon-accessory super-home"></i>
+          Home
+      </super-navigate>
+      <super-navigate location="settings#index" class="item item-icon-left item-icon-right" onclick="supersonic.ui.drawers.close()">
+          <i class="icon icon-accessory super-gear-a"></i>
+          Settings
+          <i class="icon icon-accessory super-chevron-right"></i>
+      </super-navigate>
+  </div>
 
-  <div class="padding">
 
-    <br>
-    <h3>You found me!</h3>
-    <br>
-
-    <p>This is a native drawer menu. You can add these on either side of the application, or both!</p>
-
-    <p>To close the menu, <b>swipe</b> from the edge, <b>tap</b> the original view or <b>tap</b> the button below.</p>
-
-    <br>
     <button class="button button-positive button-block" ng-click="supersonic.ui.drawers.close()">
       Close this menu
     </button>
 
-  </div>
 
 </div>
